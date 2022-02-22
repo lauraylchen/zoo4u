@@ -1,0 +1,30 @@
+.banner {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* Sizing */
+    width: 100vw;
+    height: 100vh;
+     /* Text styles */
+    text-align: center;
+
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    h1 {
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 32px;
+    font-weight: bold;
+  }
+    p {
+      font-size: 20px;
+      color: white;
+      opacity: .7;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.985);
+    }
+}
