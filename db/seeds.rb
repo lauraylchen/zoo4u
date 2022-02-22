@@ -9,6 +9,7 @@ require "open-uri"
 
 puts "Cleaning the db..."
 Animal.destroy_all
+User.destroy_all
 
 # User needed to seed the DB
 user1 = User.create(email: "test@test.com",
