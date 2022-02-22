@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_22_154458) do
+ActiveRecord::Schema.define(version: 2022_02_22_185131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,23 @@ ActiveRecord::Schema.define(version: 2022_02_22_154458) do
   create_table "animals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.string "type"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "animal_type"
     t.index ["user_id"], name: "index_animals_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "animal_id", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["animal_id"], name: "index_bookings_on_animal_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +51,6 @@ ActiveRecord::Schema.define(version: 2022_02_22_154458) do
   end
 
   add_foreign_key "animals", "users"
+  add_foreign_key "bookings", "animals"
+  add_foreign_key "bookings", "users"
 end
