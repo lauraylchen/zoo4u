@@ -2,7 +2,7 @@
   <%= image_tag "ozujeanjacket.png", width: "300px" %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= animal.name %></h2>
+      <h2><%= link_to animal.name, animal_path(animal) %></h2>
       <h3><%= animal.animal_type %></h3>
       <p><%= animal.description %></p>
     </div>
