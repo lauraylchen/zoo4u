@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 
 # gem for hiding API Keys
 
+# Gem Faker
+gem 'faker'
+
 # cloudinary gem
 gem 'cloudinary', '~> 1.16.0'
 

@@ -18,45 +18,19 @@ username: "GoatLover")
 
 # Template for seeding animals
 # Set upload path for user image here
-# Commented out for ease of seeding, otherwise takes forever to load
-# file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
-animal = Animal.create(user: user, 
-    name: 'Fluffy',
-    animal_type: 'Goat', 
-    description: 'Loves to play in the grass!') 
-# animal.photo.attach(io: file, filename: 'goat.png', content_type: 'image/png')
+animals = ['donkey', 'piggy', 'lemur']
+animals.each do |animal|
+  # file = URI.open("https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/#{animal}.jpg")
+  file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg")
+  animal = Animal.create(user_id: user1.id,
+    name: Faker::Creature::Animal.name,
+    animal_type: animal,
+    description: Faker::Quote.yoda
+  )
 
-animal2 = Animal.create(user: user, 
-    name: 'Rex',
-    animal_type: 'Dog', 
-    description: 'Loves to chase cats!')
+  animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
 
-# Seeds a booking connected to the above user and animal
-booking = Booking.create(user: user,
-animal: animal,
-start_date: Date.new(2021,10,30),
-end_date: Date.new(2022,5,1),
-status: 1)
+  puts animal.valid?
+  puts animal.errors.messages
+end
 
-booking2 = Booking.create(user: user,
-    animal: animal2,
-    start_date: Date.new(2021,10,30),
-    end_date: Date.new(2022,5,1),
-    status: 1)
-
-
-
-
-
-# def validation
-#      puts user.valid?
-#     puts user.errors.messages
-#     puts animal.valid?
-#     puts animal.errors.messages
-#     puts animal2.valid?
-#     puts animal2.errors.messages
-#     puts booking.valid?
-#     puts booking.errors.messages
-#     puts booking2.valid?
-#     puts booking2.errors.messages
-# end

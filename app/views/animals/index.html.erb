@@ -1,7 +1,13 @@
-<h1>All Animals</h1>
+<div class="index-title">
+<h1>Our Animals</h1>
+</div>
 
-<% @animals.each do |animal| %>
-  <h2><%= link_to animal.name, animal_path(animal) %></h2>
-  <h3><%= animal.animal_type %></h3>
-  <p><%= animal.description %></p>
-<% end %>
+
+<div class="container">
+  <div class="cards-animals">
+    <% @animals.each do |animal| %>
+    <%= render "card", animal: animal %>
+    <% end %>
+  </div>
+</div>
+
