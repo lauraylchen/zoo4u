@@ -12,17 +12,17 @@ Animal.destroy_all
 User.destroy_all
 
 # User needed to seed the DB
-user1 = User.create(email: "test@test.com",
+user = User.create(email: "test@test.com",
 password: "123456",
 username: "GoatLover")
 
-puts user1.valid?
-puts user1.errors.messages
+puts user.valid?
+puts user.errors.messages
 
 # Template for seeding animals
 # Set upload path for user image here
 # file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
-animal1 = animal = Animal.create(user_id: user1.id, 
+animal = Animal.create(user: user, 
     name: 'Fluffy',
     animal_type: 'Goat', 
     description: 'Loves to play in the grass!') 
@@ -36,13 +36,11 @@ puts animal.valid?
 puts animal.errors.messages
 
 # Seeds a booking connected to the above user and animal
-booking = Booking.create(user_id: user1.id,
-animal_id: animal1.id,
+booking = Booking.create(user: user,
+animal: animal,
 start_date: Date.new(2021,10,30),
 end_date: Date.new(2022,5,1),
-status: 1,
-created_at: Time.now.utc,
-updated_at: Time.now.utc)
+status: 1)
 
 puts booking.valid?
 puts booking.errors.messages
