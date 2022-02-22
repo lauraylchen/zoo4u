@@ -41,7 +41,7 @@ gem 'simple_form'
 gem 'devise'
 
 # Gem file for hiding API Keys
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   gem 'pry-byebug'
