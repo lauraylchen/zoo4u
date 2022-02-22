@@ -1,7 +1,5 @@
 <h1>All Animals</h1>
 
 <% @animals.each do |animal| %>
-  <h2><%= animal.name %></h2>
-  <h3><%= animal.animal_type %></h3>
-  <p><%= animal.description %></p>
+  <%= render "card", animal: animal %>
 <% end %>

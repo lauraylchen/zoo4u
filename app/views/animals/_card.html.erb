@@ -1,9 +1,10 @@
 <div class="card-trip">
-  <img src="ozujeanjacket.png" />
+  <%= image_tag "ozujeanjacket.png", width: "300px" %>
   <div class="card-trip-infos">
     <div>
-      <h2>Ozu The Cat</h2>
-      <p>Watch movies with me!</p>
+      <h2><%= animal.name %></h2>
+      <h3><%= animal.animal_type %></h3>
+      <p><%= animal.description %></p>
     </div>
     <h2 class="card-trip-pricing">$500.00/day</h2>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
