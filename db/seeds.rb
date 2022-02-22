@@ -8,6 +8,18 @@
 
 puts "Cleaning the db..."
 Animal.destroy_all
- 
-animal = Animal.create(name: 'Fluffy',animal_type: 'Goat',description: 'Loves to play in the grass!') 
-animal2 = Animal.create(name: 'Fluffy2',animal_type: 'Goat',description: 'Loves to play in the grass!')
+
+user1 = User.create(email: "test@test.com",
+password: "123456",
+username: "GoatLover")
+
+puts user1.valid?
+puts user1.errors.messages
+
+animal = Animal.create(user_id: user1.id, 
+    name: 'Fluffy',
+    animal_type: 'Goat', 
+    description: 'Loves to play in the grass!') 
+
+puts animal.valid?
+puts animal.errors.messages
