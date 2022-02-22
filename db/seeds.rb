@@ -21,13 +21,13 @@ puts user1.errors.messages
 
 # Template for seeding animals
 # Set upload path for user image here
-file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
+# file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
 animal1 = animal = Animal.create(user_id: user1.id, 
     name: 'Fluffy',
     animal_type: 'Goat', 
     description: 'Loves to play in the grass!') 
 
-animal.photo.attach(io: file, filename: 'goat.png', content_type: 'image/png')
+# animal.photo.attach(io: file, filename: 'goat.png', content_type: 'image/png')
 
 #  Use html below to access image where @animals = Animal.all
 # <%= cl_image_tag @animals[index].photo.key, height: 300, width: 400, crop: :fill %>
@@ -38,8 +38,11 @@ puts animal.errors.messages
 # Seeds a booking connected to the above user and animal
 booking = Booking.create(user_id: user1.id,
 animal_id: animal1.id,
-start_date: Time.new(2021,10,30),
-end_date: Time.new(2022,5,1),
+start_date: Date.new(2021,10,30),
+end_date: Date.new(2022,5,1),
 status: 1,
 created_at: Time.now.utc,
 updated_at: Time.now.utc)
+
+puts booking.valid?
+puts booking.errors.messages
