@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
-
 puts "Cleaning the db..."
 Animal.destroy_all
 
@@ -20,8 +19,8 @@ puts user1.valid?
 puts user1.errors.messages
 
 
+# Template for seeding animals
 file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
-
 animal = Animal.create(user_id: user1.id, 
     name: 'Fluffy',
     animal_type: 'Goat', 
