@@ -3,3 +3,4 @@ class RemoveTypeFromAnimals < ActiveRecord::Migration[6.1]
     remove_column :animals, :type, :string
   end
 end
+
