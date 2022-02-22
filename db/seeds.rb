@@ -12,12 +12,9 @@ Animal.destroy_all
 User.destroy_all
 
 # User needed to seed the DB
-user1 = User.create(email: "test@test.com",
+user = User.create(email: "test@test.com",
 password: "123456",
 username: "GoatLover")
-
-puts user1.valid?
-puts user1.errors.messages
 
 # Template for seeding animals
 # Set upload path for user image here
@@ -33,9 +30,7 @@ animals.each do |animal|
 
   animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
 
-#  Use html below to access image where @animals = Animal.all
-# <%= cl_image_tag @animals[index].photo.key, height: 300, width: 400, crop: :fill %>
-
   puts animal.valid?
   puts animal.errors.messages
 end
+
