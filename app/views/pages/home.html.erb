@@ -1,5 +1,7 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erbbbbb</p>
 
-<%= cl_image_tag(@animals[0].img_url,
-      width: 400, height: 300, crop: :fill) %>
+<div>
+<%= cl_image_tag @animals[0].photo.key, height: 300, width: 400, crop: :fill %>
+<p> Animal Seeded with Cloudinary </p>
+</div>

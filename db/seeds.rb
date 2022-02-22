@@ -5,10 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
 
 puts "Cleaning the db..."
 Animal.destroy_all
 
+# User needed to seed the DB
 user1 = User.create(email: "test@test.com",
 password: "123456",
 username: "GoatLover")
@@ -16,10 +19,15 @@ username: "GoatLover")
 puts user1.valid?
 puts user1.errors.messages
 
+
+file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
+
 animal = Animal.create(user_id: user1.id, 
     name: 'Fluffy',
     animal_type: 'Goat', 
     description: 'Loves to play in the grass!') 
+
+animal.photo.attach(io: file, filename: 'goat.png', content_type: 'image/png')
 
 puts animal.valid?
 puts animal.errors.messages
