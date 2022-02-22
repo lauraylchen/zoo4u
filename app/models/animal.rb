@@ -3,4 +3,5 @@ class Animal < ApplicationRecord
   has_many :bookings
 
   validates :name, :animal_type, :description, presence: true
+  has_one_attached :photo
 end
