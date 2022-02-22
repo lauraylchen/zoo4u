@@ -28,3 +28,18 @@
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.985);
     }
 }
+
+.btn-ghost {
+  color: #ffffff;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #1572A1;
+  }
+}
