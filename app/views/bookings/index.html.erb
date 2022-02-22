@@ -1,0 +1,10 @@
+<h1>All Bookings</h1>
+<% @bookings.each do |booking| %>
+  <h2><%= booking.user %></h2>
+  <h3><%= booking.animal %></h3>
+  <p><%= booking.start_date %></p>
+  <p><%= booking.end_date %></p>
+  <p><%= booking.status %></p>
+  <p><%= booking.created_at %></p>
+  <p><%= booking.updated_at %></p>
+<% end %>
