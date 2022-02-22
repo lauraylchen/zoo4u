@@ -21,16 +21,21 @@ puts user1.errors.messages
 
 # Template for seeding animals
 # Set upload path for user image here
-file = URI.open('https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/happygoat_nkdyjo.jpg')
-animal = Animal.create(user_id: user1.id, 
-    name: 'Fluffy',
-    animal_type: 'Goat', 
-    description: 'Loves to play in the grass!') 
+animals = ['donkey', 'piggy', 'lemur']
+animals.each do |animal|
+  # file = URI.open("https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/#{animal}.jpg")
+  file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg")
+  animal = Animal.create(user_id: user1.id,
+    name: Faker::Creature::Animal.name,
+    animal_type: animal,
+    description: Faker::Quote.yoda
+  )
 
-animal.photo.attach(io: file, filename: 'goat.png', content_type: 'image/png')
+  animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
 
 #  Use html below to access image where @animals = Animal.all
 # <%= cl_image_tag @animals[index].photo.key, height: 300, width: 400, crop: :fill %>
 
-puts animal.valid?
-puts animal.errors.messages
+  puts animal.valid?
+  puts animal.errors.messages
+end

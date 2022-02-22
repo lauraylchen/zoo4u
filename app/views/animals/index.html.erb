@@ -3,17 +3,9 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <% @animals.each do |animal| %>
-      <%= render "card", animal: animal %>
-      <% end %>
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
+  <div class="cards-animals">
+    <% @animals.each do |animal| %>
+    <%= render "card", animal: animal %>
+    <% end %>
   </div>
 </div>
