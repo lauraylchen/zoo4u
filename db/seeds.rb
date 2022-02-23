@@ -49,20 +49,20 @@ animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492419/animals/catsanddogs.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491838/animals/rabbits.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491426/animals/goat.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645490864/animals/Ozu_in_jean_jacket.png"
+  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg"
 ]
 
 # Template for seeding animals
 # Set upload path for user image here
-animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'catyawning', 'beaver', 'fennec', 'catsanddogs', 'rabbits', 'goat', 'ozu_in_jean_jacket' ]
+animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'catyawning', 'beaver', 'fennec', 'catsanddogs', 'rabbits', 'goat', 'ozu_face' ]
 animals.each do |animal|
   # file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/#{animal}.jpg")
     file = URI.open(animals_photo[animals.index(animal)])
     animal = Animal.create!(
     user_id: users.sample.id,
-    name: Faker::Creature::Animal.name,
+    name: Faker::FunnyName.name,
     animal_type: animal,
-    description: Faker::Quote.yoda,
+    description: Faker::Movie.quote,
     price: (200..800).to_a.sample
   )
 
