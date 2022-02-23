@@ -1,0 +1,10 @@
+<h1>All My Animals</h1>
+<% @animals.each do |animal| %>
+  <h2><%= animal.user.username %></h2>
+  <h3><%= animal.name %></h3>
+  <p><%= animal.description %></p>
+  <p><%= animal.animal_type %></p>
+  <p><%= animal.price %></p>
+  <%= cl_image_tag animal.photo.key, height: 300, width: 400, crop: :fill %>
+
+<% end %>

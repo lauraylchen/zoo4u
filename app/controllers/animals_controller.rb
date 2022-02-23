@@ -10,6 +10,7 @@ class AnimalsController < ApplicationController
   end
 
   def my_animals
-    @animals = Animal.where(id: current_user.id)
+    @animals = Animal.where(user_id: current_user.id)
+    
   end
 end
