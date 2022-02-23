@@ -9,6 +9,10 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
   end
 
+  def my_animals
+    @animals = Animal.where(user_id: current_user.id)
+  end
+
   def new
     @animal = Animal.new
   end
