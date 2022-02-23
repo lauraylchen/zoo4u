@@ -55,6 +55,7 @@ animals_photo = [
 
 # Template for seeding animals
 # Set upload path for user image here
+animals_array = []
 animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'catyawning', 'beaver', 'fennec', 'catsanddogs', 'rabbits', 'goat', 'ozu_face' ]
 animals.each do |animal|
   # file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/#{animal}.jpg")
@@ -68,6 +69,7 @@ animals.each do |animal|
   )
 
   animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
+  animals_array.push(animal)
 
   # puts animal.valid?
   # puts animal.errors.messages
@@ -75,10 +77,13 @@ animals.each do |animal|
 end
 
 15.times do
-  Booking.create(
+  booking = Booking.create(
     user_id: users.sample.id,
-    animal_id: rand(Animal.count),
+    animal_id: animals_array[rand(animals_array.length - 1)].id,
     start_date: Date.new(2021, 10, 30),
     end_date: Date.new(2022, 5, 1)
   )
+
+  puts booking.valid?
+  puts booking.errors.messages
 end
