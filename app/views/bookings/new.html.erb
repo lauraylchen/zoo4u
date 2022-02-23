@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Booking</h1>
+      <%= simple_form_for [@animal, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
