@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @animals = Animal.all
   end
+
+  def user_profile
+  end
 end
