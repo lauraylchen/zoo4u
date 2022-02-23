@@ -8,4 +8,9 @@ class AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
   end
+
+  def my_animals
+    @animals = Animal.where(user_id: current_user.id)
+    
+  end
 end

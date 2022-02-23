@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :animals, only: %i[index show]
 
   get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
+
+  get'/my_animals', to: 'animals#my_animals', as: :my_animals
 end
