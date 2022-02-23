@@ -21,6 +21,7 @@ user = User.create(
 # Template for seeding animals
 # Set upload path for user image here
 animals = ['donkey', 'piggy', 'lemur']
+animal_array = []
 animals.each do |animal|
   # file = URI.open("https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/#{animal}.jpg")
   file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg")
@@ -35,4 +36,19 @@ animals.each do |animal|
 
   puts animal.valid?
   puts animal.errors.messages
+  animal_array.push(animal)
 end
+
+
+booking = Booking.create(user: user,
+  animal: animal_array[0],
+  price: 300,
+  start_date: Date.new(2021,10,30),
+  end_date: Date.new(2022,5,1),
+  status: 1)
+  booking2 = Booking.create(user: user,
+      animal: animal_array[1],
+      price: 600,
+      start_date: Date.new(2021,10,30),
+      end_date: Date.new(2022,5,1),
+      status: 1)
