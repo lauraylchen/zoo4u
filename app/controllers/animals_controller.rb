@@ -11,7 +11,7 @@ class AnimalsController < ApplicationController
 
   def my_animals
     @animals = Animal.where(user_id: current_user.id)
-    end
+  end
 
   def new
     @animal = Animal.new
