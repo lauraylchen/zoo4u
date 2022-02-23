@@ -12,9 +12,11 @@ Animal.destroy_all
 User.destroy_all
 
 # User needed to seed the DB
-user = User.create(email: "test@test.com",
-password: "123456",
-username: "GoatLover")
+user = User.create(
+  email: "test@test.com",
+  password: "123456",
+  username: "GoatLover"
+)
 
 # Template for seeding animals
 # Set upload path for user image here
@@ -22,7 +24,8 @@ animals = ['donkey', 'piggy', 'lemur']
 animals.each do |animal|
   # file = URI.open("https://res.cloudinary.com/dtx91va4x/image/upload/v1645550632/#{animal}.jpg")
   file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg")
-  animal = Animal.create(user_id: user1.id,
+  animal = Animal.create(
+    user_id: user.id,
     name: Faker::Creature::Animal.name,
     animal_type: animal,
     description: Faker::Quote.yoda
@@ -33,4 +36,3 @@ animals.each do |animal|
   puts animal.valid?
   puts animal.errors.messages
 end
-
