@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Post Your Animal</h1>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for @animal do |f| %>
+        <%= f.input :name %>
+        <%= f.input :animal_type %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
