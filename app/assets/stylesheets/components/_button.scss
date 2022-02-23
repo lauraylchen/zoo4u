@@ -1,0 +1,11 @@
+.btn-lightblue {
+  color: #1572A1;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #9AD0EC;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: white;
+  }
+}
