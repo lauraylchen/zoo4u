@@ -1,7 +1,20 @@
-<%= link_to "All Animals", animals_path %>
+<div id="profile"  class="profile">
+  <div class="container">
+    <div class="row align-items-center">
+        <div class="col-12" >
+          <div class="blue-div">
+            <%= image_tag "ozujeanjacket.png", alt: "Photo of Cat", width: "200px", crop: :fill %>
+            <%# <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
 
-<h1><%= @animal.name %></h1>
-<h2><%= @animal.animal_type %></h2>
+            <div class="title-page">
+                <h1><%= @animal.name %></h1>
+                <h2><%= @animal.animal_type %></h2>
+                <p><%= @animal.description %></p>
+            </div>
+          </div>
+        </div>
 
-<p><%= @animal.description %></p>
-<%# cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <%= link_to "See All Animals", animals_path %>
+  </div>
+</div>
