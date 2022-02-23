@@ -1,5 +1,6 @@
 <div class="card-trip">
   <%= cl_image_tag animal.photo.key, width: 300, crop: :fill %>
+
   <div class="card-trip-infos">
     <div>
       <h2><%= link_to animal.name, animal_path(animal) %></h2>
