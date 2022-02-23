@@ -78,7 +78,6 @@ end
     user_id: users.sample.id,
     animal_id: rand(Animal.count),
     start_date: Date.new(2021, 10, 30),
-    end_date: Date.new(2022, 5, 1),
-    status: "pending"
+    end_date: Date.new(2022, 5, 1)
   )
 end
