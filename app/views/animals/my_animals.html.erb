@@ -1,8 +1,8 @@
-<div class="my-animals-title">
-<h1>All My Animals</h1>
-</div>
 
 <div class="container">
+  <div class="my-animals-title">
+    <h1>All My Animals</h1>
+  </div>
   <div class="cards-animals">
     <% @animals.each do |animal| %>
     <%= render "card", animal: animal %>
