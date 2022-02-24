@@ -1,21 +1,51 @@
-
-<div class = "index-title">
-<h1>My Bookings</h1>
-</div>
-
-<% @bookings.each do |booking| %>
-  <% animal = booking.animal %>
-  <div class="booking-card-product">
-    <%= render "animals/animal_image", animal: animal %>
-    <div class="booking-card-product-infos">
-      <h2><%= animal.name %></h2>
-      <p><%= booking.start_date %></p>
-      <p><%= booking.end_date %></p>
-      <p><%= booking.total_price %>$</p>
-    </div>
-    <div class= "status">
-      <p><%= booking.status %></p>
-    </div>
+<div class="container">
+  <div class = "index-title">
+  <h1>Bookings</h1>
   </div>
 
-<% end %>
+  <h2>My Booking</h2>
+  <% if @bookings.empty? %>
+    <div class="empty-booking-card">
+      <h2>You haven't rent any animals yet.</h2>
+    </div>
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <% animal = booking.animal %>
+      <div class="booking-card-product">
+        <%= render "animals/animal_image", animal: animal %>
+        <div class="booking-card-product-infos">
+          <h2><%= animal.name %></h2>
+          <p><%= booking.start_date %></p>
+          <p><%= booking.end_date %></p>
+          <p><%= booking.total_price %>$</p>
+        </div>
+        <div class= "status">
+          <p><%= booking.status %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <h2>Renter Booking</h2>
+  <% if @owner_bookings.empty? %>
+    <div class="empty-booking-card">
+      <h2>No requests for your animals yet.</h2>
+    </div>
+  <% else %>
+    <% @owner_bookings.each do |booking| %>
+      <% animal = booking.animal %>
+      <div class="booking-card-product">
+        <%= render "animals/animal_image", animal: animal %>
+        <div class="booking-card-product-infos">
+          <h2><%= animal.name %></h2>
+          <p><%= booking.start_date %></p>
+          <p><%= booking.end_date %></p>
+          <p><%= booking.total_price %>$</p>
+        </div>
+        <div class= "status">
+          <p><%= booking.status %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
