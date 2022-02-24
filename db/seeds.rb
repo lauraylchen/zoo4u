@@ -77,14 +77,16 @@ animals.each do |animal|
 end
 
 15.times do
-  booking = Booking.create(
+  booking = Booking.new(
     user_id: users.sample.id,
     animal_id: animals_array[rand(animals_array.length - 1)].id,
     start_date: Date.new(2022, 4, 25),
     end_date: Date.new(2022, 5, 1)
   )
-
-  Booking.destroy(booking.id) if booking.user == booking.animal.user
+  select_query = "user_id LIKE ? AND animal_id LIKE ?"
+  if booking.user != booking.animal.user && Booking.where(select_query, booking.user_id, booking.animal_id).empty?
+    booking.save!
+  end
   puts booking.valid?
   puts booking.errors.messages
 end
