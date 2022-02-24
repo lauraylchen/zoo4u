@@ -1,7 +1,7 @@
 
 <% if current_user != nil %>
     <% if current_user.photo.attached? %>
-        <%= cl_image_tag animal.user.photo.key, width: 300, crop: :fill,  class: "card-trip-user avatar-bordered" %>
+        <%= cl_image_tag animal.user.photo.key,  width: 300, class: "card-trip-user avatar-bordered" %>
     <% else %>
         <%= image_tag 'zoo4ulogo.png', class: "avatar dropdown-toggle card-trip-user avatar-bordered" , id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
     <% end %>
