@@ -16,38 +16,38 @@ User.destroy_all
 user1 = User.create(
   email: "test@test.com",
   password: "123456",
-  username: "GoatLover"
+  username: "Akhyra!"
 )
 
-user_photo_file_1 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491426/animals/goat.jpg")
+user_photo_file_1 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/akhyra.jpg")
 user1.photo.attach(io: user_photo_file_1, filename: "avatar1.png", content_type: 'image/jpg')
 
 
 user2 = User.create(
   email: "test2@test.com",
   password: "123456",
-  username: "CatLover"
+  username: "Cam"
 )
 
-user_photo_file_2 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg")
+user_photo_file_2 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/cameron.jpg")
 user2.photo.attach(io: user_photo_file_2, filename: "avatar2.png", content_type: 'image/jpg')
 
 user3 = User.create(
   email: "test3@test.com",
   password: "123456",
-  username: "DonkeyLover"
+  username: "Isabelle"
 )
 
-user_photo_file_3 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491971/animals/donkey.jpg")
+user_photo_file_3 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/isabelle.jpg")
 user3.photo.attach(io: user_photo_file_3, filename: "avatar3.png", content_type: 'image/jpg')
 
 user4 = User.create(
   email: "test4@test.com",
   password: "123456",
-  username: "PiggyLover"
+  username: "Laura"
 )
 
-user_photo_file_4 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492268/animals/piggy.jpg")
+user_photo_file_4 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/laura.jpg")
 user4.photo.attach(io: user_photo_file_4, filename: "avatar4.png", content_type: 'image/jpg')
 
 
