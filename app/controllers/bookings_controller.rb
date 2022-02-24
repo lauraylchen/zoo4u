@@ -25,14 +25,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def duration_calculator(start_date, end_date)
-    if end_date == start_date
-      1
-    else
-      end_date - start_date
-    end
-  end
-
   private
 
   def set_animal
@@ -42,5 +34,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end

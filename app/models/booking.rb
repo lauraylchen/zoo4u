@@ -18,4 +18,7 @@ class Booking < ApplicationRecord
     end
   end
 
+  def total_price
+    (end_date - start_date).to_i * animal.price
+  end
 end
