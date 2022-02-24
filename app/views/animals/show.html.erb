@@ -4,6 +4,7 @@
       <div class="mb-3">
         <%= link_to "⬅ All Animals", animals_path %>
       </div>
+
       <div class="blue-div">
         <% if @animal.photo.attached? %>
           <%= cl_image_tag @animal.photo.key, height: 600, width: 650, crop: :fill %>
@@ -35,11 +36,6 @@
           <% end %>
         </div>
       <% end %>
-
-
     </div>
-    
-
   </div>
-
 </div>
