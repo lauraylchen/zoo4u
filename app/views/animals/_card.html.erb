@@ -7,6 +7,8 @@
       <h3><%= animal.animal_type %></h3>
     </div>
     <h2 class="card-trip-pricing">$<%= animal.price %>/day</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+    <%= render 'shared/avatar_animal_card', animal: animal %>
   </div>
 </div>
+

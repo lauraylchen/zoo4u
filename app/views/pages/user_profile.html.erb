@@ -1,2 +1,14 @@
 <h1> User Profile </h1>
-<p> Upload a user profile </p>
+<p> Update a user profile </p>
+<%= render "shared/avatar_current_user"%>
+<p> <%=current_user.username %> </p>
+
+<div class="col-6">
+    <h1>Update Your Pofile </h1>
+    <%= simple_form_for current_user, url: update_user_path, method: :patch do |f| %>
+        <%#= current_user.photo.purge %>
+        <%= f.input :photo %>
+        <%= f.input :username %>
+        <%= f.button :submit %>
+    <% end %>
+</div>

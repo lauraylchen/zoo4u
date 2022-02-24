@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get '/my_animals', to: 'animals#my_animals', as: :my_animals
 
   get '/user_profile', to: 'pages#user_profile', as: :user_profile
+  patch '/user_profile', to: 'pages#update_user', as: :update_user
 end
