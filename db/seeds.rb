@@ -19,7 +19,7 @@ user1 = User.create(
   username: "Akhyra!"
 )
 
-user_photo_file_1 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/akhyra.jpg")
+user_photo_file_1 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738601/profile/akhyra_pnj34l.jpg")
 user1.photo.attach(io: user_photo_file_1, filename: "avatar1.png", content_type: 'image/jpg')
 
 
@@ -29,7 +29,7 @@ user2 = User.create(
   username: "Cam"
 )
 
-user_photo_file_2 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/cameron.jpg")
+user_photo_file_2 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738592/profile/cameron_zc7loh.jpg")
 user2.photo.attach(io: user_photo_file_2, filename: "avatar2.png", content_type: 'image/jpg')
 
 user3 = User.create(
@@ -38,7 +38,7 @@ user3 = User.create(
   username: "Isabelle"
 )
 
-user_photo_file_3 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/isabelle.jpg")
+user_photo_file_3 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738596/profile/isabelle.jpg")
 user3.photo.attach(io: user_photo_file_3, filename: "avatar3.png", content_type: 'image/jpg')
 
 user4 = User.create(
@@ -47,7 +47,7 @@ user4 = User.create(
   username: "Laura"
 )
 
-user_photo_file_4 = URI.open("/home/cawoolf/code/cawoolf/zoo4u/app/assets/images/laura.jpg")
+user_photo_file_4 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738587/profile/laura_fpgj7l.jpg")
 user4.photo.attach(io: user_photo_file_4, filename: "avatar4.png", content_type: 'image/jpg')
 
 
