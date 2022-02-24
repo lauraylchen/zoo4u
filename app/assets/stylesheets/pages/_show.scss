@@ -1,15 +1,24 @@
-.profile_img {
-  text-align: left;
-  width: 30%;
-  // border: 1px solid red;
+body{
+  background-color: white;
+}
+.blue-div {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 20px 0;
 }
 
 .title-page {
-  // border: 1px solid green
-
+  background-color: #E3BEC6;
+  margin: auto, 2%;
+  padding: 30px;
+  flex-grow: 1;
+  h1, h2, p {
+  margin: auto;
+  text-align: center;
+  padding-top: 60px;
 }
-.blue-div {
-  // border: 1px solid blue;
-  display: flex;
-  justify-content: space-between;
+  h1 {
+    font-size: 50px;
+  }
 }

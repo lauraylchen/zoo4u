@@ -1,4 +1,7 @@
-<h1>All My Bookings</h1>
+
+<div class = "my-booking-title">
+<h1>My Bookings</h1>
+</div>
 
 <% @bookings.each do |booking| %>
   <% animal = booking.animal %>
@@ -10,7 +13,7 @@
       <p><%= booking.end_date %></p>
       <p><%= booking.total_price %>$</p>
     </div>
-    <div>
+    <div class= "status">
       <p><%= booking.status %></p>
     </div>
   </div>
