@@ -1,5 +1,3 @@
-require "open-uri"
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
@@ -8,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def user_profile
+    # Show page essentially for the user profile
   end
 
 
@@ -15,8 +14,7 @@ class PagesController < ApplicationController
 
     if current_user.update(user_params)
     
-      # Notice not working?
-      render :user_profile, notice: "Update successful!"
+      redirect_to user_profile_path, notice: "Profile updated!"
      
     else
       render :user_profile

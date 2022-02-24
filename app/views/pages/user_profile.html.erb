@@ -1,10 +1,6 @@
 <h1> User Profile </h1>
 <p> Update a user profile </p>
-<% if current_user.photo.attached? %>
-    <%= cl_image_tag current_user.photo.key, width: 300, crop: :fill %>
-<% else %>
-    <%= image_tag 'zoo4ulogo.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
-<% end %>
+<%= render "shared/avatar_current_user"%>
 <p> <%=current_user.username %> </p>
 
 <div class="col-6">
