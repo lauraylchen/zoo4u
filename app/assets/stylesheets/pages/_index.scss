@@ -1,3 +1,26 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+
+.index-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-element {
+  width: 20%;
+}
+
+.search-results{
+  position: relative;
+  height: 3.5rem;
+  right: 20px;
+}
+
+.search-results .btn {
+  position: absolute;
+  top: 0;
+  bottom: 20px;
+  right: 0;
+  margin-left: 30px;
+}
