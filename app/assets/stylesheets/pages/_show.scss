@@ -3,24 +3,17 @@ body{
 }
 .blue-div {
   display: flex;
-  justify-content: space-evenly;
   flex-direction: row;
+  padding: 0;
+  margin: 20px 0;
 }
 
 .title-page {
   background-color: #E3BEC6;
   margin: auto, 2%;
   padding: 30px;
-}
-
-.btn-lightblue {
-  margin-top: 20px;
-  border-radius: 50px;
-  width: 20%;
-  margin-left: 70%;
-}
-
-h1, h2, p {
+  flex-grow: 1;
+  h1, h2, p {
   margin: auto;
   text-align: center;
   padding-top: 60px;
@@ -28,3 +21,4 @@ h1, h2, p {
   h1 {
     font-size: 50px;
   }
+}
