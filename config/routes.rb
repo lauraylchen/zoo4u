@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   get '/user_profile', to: 'pages#user_profile', as: :user_profile
   patch '/user_profile', to: 'pages#update_user', as: :update_user
 
-  # Edit.. Usually goes together with Update
-  get '/animals/:id/edit', to: 'animals#edit', as: :edit_animal
   # Update
   patch '/animals/:id', to: 'animals#update', as: :update_animal
 end
