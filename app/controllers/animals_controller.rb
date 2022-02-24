@@ -2,7 +2,11 @@ class AnimalsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @animals = Animal.all
+    if params[:animal_type].present?
+      @animals = Animal.where("animal_type ILIKE ?", "%#{params[:animal_type]}%")
+    else
+      @animals = Animal.all
+    end
   end
 
   def show
