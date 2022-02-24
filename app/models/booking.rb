@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :animal
-
+ 
   validate :end_date_is_after_start_date
 
   enum status: {

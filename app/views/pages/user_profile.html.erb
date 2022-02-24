@@ -1,2 +1,16 @@
 <h1> User Profile </h1>
-<p> Upload a user profile </p>
+<p> Update a user profile </p>
+<% if current_user.photo.attached? %>
+    <%= cl_image_tag current_user.photo.key, width: 300, crop: :fill %>
+<% else %>
+    <%= image_tag 'zoo4ulogo.png', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+<% end %>
+
+<div class="col-6">
+    <h1>Update Your Pofile </h1>
+    <%= simple_form_for current_user, url: update_user_path, method: :patch do |f| %>
+        <%= current_user.photo.purge %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit %>
+    <% end %>
+</div>
