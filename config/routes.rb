@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
-
   # Custom Routes
   get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
 
@@ -15,4 +14,7 @@ Rails.application.routes.draw do
 
   get '/user_profile', to: 'pages#user_profile', as: :user_profile
   patch '/user_profile', to: 'pages#update_user', as: :update_user
+
+  # Update
+  patch '/animals/:id', to: 'animals#update', as: :update_animal
 end

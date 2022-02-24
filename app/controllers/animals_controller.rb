@@ -27,6 +27,15 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def update
+    @animal = Animal.find(params[:id])
+    if @animal.update(animal_params)
+      redirect_to @animal, notice: 'Animal was successfully updated.'
+    else
+      render :show
+    end
+  end
+
   private
 
   def animal_params
