@@ -1,9 +1,10 @@
+
+<%= link_to animal do %>
 <div class="card-trip">
   <%= render "animal_image", animal: animal %>
-
   <div class="card-trip-infos">
     <div>
-      <h2><%= link_to animal.name, animal_path(animal) %></h2>
+      <h2><%= animal.name %></h2>
       <h3><%= animal.animal_type %></h3>
     </div>
     <h2 class="card-trip-pricing">$<%= animal.price %>/day</h2>
@@ -11,4 +12,5 @@
     <%= render 'shared/avatar_animal_card', animal: animal %>
   </div>
 </div>
+<% end %>
 
