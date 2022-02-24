@@ -10,7 +10,7 @@
     <h1>Update Your Pofile </h1>
     <%= simple_form_for current_user, url: update_user_path, method: :patch do |f| %>
         <%= current_user.photo.purge %>
-        <%= f.input :photo, as: :file %>
+        <%= f.input :photo %>
         <%= f.button :submit %>
     <% end %>
 </div>
