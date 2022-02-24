@@ -67,11 +67,12 @@ animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg"
 ]
 
+puts "Users created"
+
 # Template for seeding animals
 # Set upload path for user image here
-animals_array = []
 animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'catyawning', 'beaver', 'fennec', 'catsanddogs', 'rabbits', 'goat', 'ozu_face' ]
-animals.each do |animal|
+animals_array = animals.map do |animal|
   # file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/#{animal}.jpg")
   file = URI.open(animals_photo[animals.index(animal)])
   animal = Animal.create!(
@@ -83,24 +84,45 @@ animals.each do |animal|
   )
 
   animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
-  animals_array.push(animal)
 
   # puts animal.valid?
   # puts animal.errors.messages
-  puts Animal.last.name
+  puts animal.name
+
+  animal
 end
 
-15.times do
-  booking = Booking.new(
-    user_id: users.sample.id,
-    animal_id: animals_array[rand(animals_array.length - 1)].id,
-    start_date: Date.new(2022, 4, 25),
-    end_date: Date.new(2022, 5, 1)
-  )
-  select_query = "user_id LIKE ? AND animal_id LIKE ?"
-  if booking.user != booking.animal.user && Booking.where(select_query, booking.user_id, booking.animal_id).empty?
-    booking.save!
-  end
-  puts booking.valid?
-  puts booking.errors.messages
-end
+puts "Creating bookings"
+
+booking1 = Booking.new(
+  start_date: Date.new(2022, 4, 25),
+  end_date: Date.new(2022, 5, 1)
+)
+booking1.user = user1
+booking1.animal = animals_array.reject { |animal| animal.user == user1 }[0]
+booking1.save!
+
+puts booking1.valid?
+puts booking1.errors.messages
+
+booking2 = Booking.new(
+  start_date: Date.new(2022, 4, 25),
+  end_date: Date.new(2022, 5, 1)
+)
+booking2.user = user1
+booking2.animal = animals_array.reject { |animal| animal.user == user1 }[1]
+booking2.save!
+
+puts booking2.valid?
+puts booking2.errors.messages
+
+booking3 = Booking.new(
+  start_date: Date.new(2022, 4, 25),
+  end_date: Date.new(2022, 5, 1)
+)
+booking3.user = user1
+booking3.animal = animals_array.reject { |animal| animal.user == user1 }[2]
+booking3.save!
+
+puts booking3.valid?
+puts booking3.errors.messages
