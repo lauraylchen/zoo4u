@@ -48,3 +48,14 @@ body {
   margin-left: auto;
   text-align: right;
 }
+
+.empty-booking-card {
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto 30px;
+  width: 70%;
+}
