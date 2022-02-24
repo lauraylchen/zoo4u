@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :animals
   has_many :bookings
+  has_one_attached :photo
 
   validates :username, presence: true, uniqueness: true
 end
