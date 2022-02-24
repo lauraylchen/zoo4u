@@ -80,7 +80,7 @@ end
   booking = Booking.create(
     user_id: users.sample.id,
     animal_id: animals_array[rand(animals_array.length - 1)].id,
-    start_date: Date.new(2021, 10, 30),
+    start_date: Date.new(2022, 4, 25),
     end_date: Date.new(2022, 5, 1)
   )
 
