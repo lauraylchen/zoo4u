@@ -5,11 +5,13 @@
         <%= link_to "⬅ All Animals", animals_path %>
       </div>
       <div class="blue-div">
-        <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @animal.photo.key, height: 650, width: 650, crop: :fill %>
         <div class="title-page">
           <h1><%= @animal.name %></h1>
           <h2><%= @animal.animal_type %></h2>
+          <br>
           <p><%= @animal.description %></p>
+          <br>
           <p>$<%= @animal.price %>/day</p>
         </div>
       </div>

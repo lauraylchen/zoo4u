@@ -1,12 +1,14 @@
 .blue-div {
   border: 1px solid blue;
-  // float: left;
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
+  flex-direction: row;
 }
 
 .title-page {
   border: 1px solid green;
+  margin-top: 10%;
 }
 
 .btn-lightblue {
@@ -15,3 +17,9 @@
   width: 20%;
   margin-left: auto;
 }
+h1, h2, p {
+  text-align: center;
+}
+  h1 {
+    font-size: 100px;
+  }
