@@ -1,15 +1,17 @@
-.profile_img {
-  text-align: left;
-  width: 30%;
-  // border: 1px solid red;
+.blue-div {
+  border: 1px solid blue;
+  // float: left;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .title-page {
-  // border: 1px solid green
-
+  border: 1px solid green;
 }
-.blue-div {
-  // border: 1px solid blue;
-  display: flex;
-  justify-content: space-between;
+
+.btn-lightblue {
+  margin-top: 20px;
+  border-radius: 50px;
+  width: 20%;
+  margin-left: auto;
 }
