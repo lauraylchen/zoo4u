@@ -13,8 +13,8 @@ class Booking < ApplicationRecord
   validates :status, inclusion: { in: statuses.keys }
 
   def end_date_is_after_start_date
-    if end_date < start_date
-      errors.add(:end_date, 'cannot be before the start date')
+    if end_date <= start_date
+      errors.add(:end_date, 'cannot be before the start date or same date')
     end
   end
 
