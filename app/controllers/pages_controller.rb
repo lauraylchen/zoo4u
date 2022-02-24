@@ -18,9 +18,10 @@ class PagesController < ApplicationController
     # current_user.photo.attach(io: file, filename: "avatar#{current_user.id}.png", content_type: 'image/png')
 
     if current_user.update(user_params)
+      # raise
       
       # file = URI.open(user_params[:photo])
-      # # raise
+      
       # current_user.photo.attach(io: file, filename: "avatar#{current_user.id}.png", content_type: 'image/png')
       # render :user_profile
       # # raise
