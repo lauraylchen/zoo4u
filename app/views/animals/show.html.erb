@@ -5,15 +5,21 @@
         <%= link_to "⬅ All Animals", animals_path %>
       </div>
       <div class="blue-div">
-        <%= render "animal_image", animal: @animal %>
+        <% if @animal.photo.attached? %>
+          <%= cl_image_tag @animal.photo.key, height: 600, width: 650, crop: :fill %>
+        <% else %>
+          <%= image_tag "unknownanimal.jpg", height: 600, width: 650, crop: :fill %>
+        <% end %>
         <div class="title-page">
           <h1><%= @animal.name %></h1>
           <h2><%= @animal.animal_type %></h2>
+          <br>
           <p><%= @animal.description %></p>
+          <br>
           <p>$<%= @animal.price %>/day</p>
         </div>
       </div>
-      <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue" %>
+      <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue col-6" %>
     </div>
   </div>
 </div>
