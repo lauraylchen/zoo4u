@@ -1,0 +1,5 @@
+<% if animal.photo.attached? %>
+  <%= cl_image_tag animal.photo.key, width: 300, crop: :fill %>
+<% else %>
+  <%= image_tag "unknownanimal.jpg", width: 300, crop: :fill %>
+<% end %>

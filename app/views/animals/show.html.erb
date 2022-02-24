@@ -1,16 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="mb-3">
-      <%= link_to "⬅ All Animals", animals_path %>
+<div class="profile">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="mb-3">
+        <%= link_to "⬅ All Animals", animals_path %>
+      </div>
+      <div class="blue-div">
+        <%= render "animal_image", animal: @animal %>
+        <div class="title-page">
+          <h1><%= @animal.name %></h1>
+          <h2><%= @animal.animal_type %></h2>
+          <p><%= @animal.description %></p>
+          <p>$<%= @animal.price %>/day</p>
+        </div>
+      </div>
+      <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue" %>
     </div>
-    <div>
-      <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill %>
-      <h1><%= @animal.name %></h1>
-      <h2><%= @animal.animal_type %></h2>
-
-      <p><%= @animal.description %></p>
-
-    </div>
-    <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue" %>
   </div>
 </div>

@@ -1,18 +1,18 @@
 <h1>All My Bookings</h1>
 
 <% @bookings.each do |booking| %>
-
-<div class="booking-card-product">
-  <%= cl_image_tag booking.animal.photo.key, width: 300, crop: :fill %>
-  <div class="booking-card-product-infos">
-    <h2><%= booking.animal.name %></h2>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-    <h3><%= booking.duration_calculator %></h3>
+  <% animal = booking.animal %>
+  <div class="booking-card-product">
+    <%= render "animals/animal_image", animal: animal %>
+    <div class="booking-card-product-infos">
+      <h2><%= animal.name %></h2>
+      <p><%= booking.start_date %></p>
+      <p><%= booking.end_date %></p>
+      <h3><%= booking.duration_calculator %></h3>
+    </div>
+    <div>
+      <p><%= booking.status %></p>
+    </div>
   </div>
-  <div>
-    <p><%= booking.status %></p>
-  </div>
-</div>
 
 <% end %>
