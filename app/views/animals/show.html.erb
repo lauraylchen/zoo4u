@@ -5,7 +5,7 @@
         <%= link_to "⬅ All Animals", animals_path %>
       </div>
       <div class="blue-div">
-        <%= cl_image_tag @animal.photo.key, height: 650, width: 650, crop: :fill %>
+        <%= render "animal_image", animal: @animal %>
         <div class="title-page">
           <h1><%= @animal.name %></h1>
           <h2><%= @animal.animal_type %></h2>
