@@ -9,11 +9,6 @@ class BookingsController < ApplicationController
     @owner_bookings = current_user.owner_bookings
   end
 
-  def new
-    set_animal
-    @booking = Booking.new
-  end
-
   def create
     set_animal
     @booking = Booking.new(booking_params)
@@ -22,7 +17,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to my_bookings_path
     else
-      render :new
+      render "animals/show"
     end
   end
 

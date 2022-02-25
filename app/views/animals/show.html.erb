@@ -22,21 +22,28 @@
       </div>
 
       <% if current_user != @animal.user%>
-        <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue col-6" %>
-      <% else %>
-        <div>
-          <h1> Edit Your Animal </h1>
-          <%= simple_form_for @animal, url: update_animal_path, method: :patch do |f| %>
-            <%= f.input :name %>
-            <%= f.input :animal_type %>
-            <%= f.input :price %>
-            <%= f.input :description %>
-            <%= f.input :photo, as: :file %>
-            <%= f.button :submit %>
-          <% end %>
-          </div>
+        <div class= "show-booking">
+          <h3>Book Now</h3>
+            <%= simple_form_for [@animal, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.button :submit %>
+            <% end %>
+            <%# <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue col-6" %>
         </div>
+      <% else %>
+          <div class = "edit-booking">
+            <h1> Edit Your Animal </h1>
+            <%= simple_form_for @animal, url: update_animal_path, method: :patch do |f| %>
+              <%= f.input :name %>
+              <%= f.input :animal_type %>
+              <%= f.input :price %>
+              <%= f.input :description %>
+              <%= f.input :photo, as: :file %>
+              <%= f.button :submit %>
+            <% end %>
+          </div>
       <% end %>
+      </div>
     </div>
   </div>
-</div>
