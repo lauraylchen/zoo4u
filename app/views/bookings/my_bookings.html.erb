@@ -55,7 +55,7 @@
         <div class= "status">
           <% if booking.status == 'pending' %>
             <div class="d-flex">
-              <%= link_to "Accept", update_booking_path(booking, booking: {status: "confirmed"}), method: :patch, class: "btn btn-success me-2" %>
+              <%= link_to "Confirm", update_booking_path(booking, booking: {status: "confirmed"}), method: :patch, class: "btn btn-success me-2" %>
               <%= link_to "Decline", update_booking_path(booking, booking: {status: "declined"}), method: :patch, class: "btn btn-danger" %>
             </div>
           <% else %>
