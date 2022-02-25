@@ -9,3 +9,36 @@
     background: white;
   }
 }
+
+.btn-ghost {
+  color: #1572A1;;
+  border: 1px solid #1572A1;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: black;
+    border: 1px solid black;
+  }
+}
+
+.btn-ghost-nav-bar {
+  color: #000000;;
+  border: 1px solid #000000;
+  padding: 8px 16px;
+  margin-right: 1rem;
+  margin-left: 0.5rem;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+  }
+}
+
