@@ -4,6 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  height: 65px
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,4 +13,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.custom-hover {
+  a:hover { color: rgb(255, 255, 255) !important; }
 }
