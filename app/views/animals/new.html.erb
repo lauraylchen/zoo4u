@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-6 show-booking mt-3">
-      <h1>Post Your Animal</h1>
+    <div class="col-6">
+      <h1 class="index-title">Register Your Animal</h1>
+      <div class="show-booking">
       <%= simple_form_for @animal do |f| %>
         <%= f.input :name %>
         <%= f.input :animal_type %>
@@ -10,6 +11,7 @@
         <%= f.input :photo, as: :file %>
         <%= f.button :submit %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
