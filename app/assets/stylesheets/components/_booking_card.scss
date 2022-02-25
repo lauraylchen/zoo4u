@@ -47,6 +47,12 @@ body {
   padding-right: 60px;
   margin-left: auto;
   text-align: right;
+  .text-green {
+    color: green;
+  }
+  .text-red {
+    color: red;
+  }
 }
 
 .empty-booking-card {

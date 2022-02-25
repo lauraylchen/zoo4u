@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: 'pages#home'
-  
+
   resources :animals, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
   end
@@ -17,4 +16,5 @@ Rails.application.routes.draw do
 
   # Update
   patch '/animals/:id', to: 'animals#update', as: :update_animal
+  patch '/bookings/:booking_id', to: 'bookings#update', as: :update_booking
 end

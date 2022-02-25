@@ -20,7 +20,13 @@
           <p><%= booking.total_price %>$</p>
         </div>
         <div class= "status">
-          <p><%= booking.status %></p>
+          <% if booking.status == 'confirmed' %>
+            <p class="text-green"><%= booking.status %></p>
+          <% elsif booking.status == 'declined' %>
+            <p class="text-red"><%= booking.status %></p>
+          <% else %>
+            <p><%= booking.status %></p>
+          <% end %>
         </div>
       </div>
     <% end %>
@@ -43,7 +49,18 @@
           <p><%= booking.total_price %>$</p>
         </div>
         <div class= "status">
-          <p><%= booking.status %></p>
+          <% if booking.status == 'pending' %>
+            <div class="d-flex">
+              <%= link_to "Accept", update_booking_path(booking, booking: {status: "confirmed"}), method: :patch, class: "btn btn-success me-2" %>
+              <%= link_to "Decline", update_booking_path(booking, booking: {status: "declined"}), method: :patch, class: "btn btn-danger" %>
+            </div>
+          <% else %>
+            <% if booking.status == 'confirmed' %>
+              <p class="text-green"><%= booking.status %></p>
+            <% else %>
+              <p class="text-red"><%= booking.status %></p>
+            <% end %>
+          <% end %>
         </div>
       </div>
     <% end %>

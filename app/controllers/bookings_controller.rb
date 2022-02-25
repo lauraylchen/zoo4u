@@ -26,6 +26,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(set_params)
+    redirect_to my_bookings_path
+  end
+
   private
 
   def set_animal
@@ -34,5 +40,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def set_params
+    params.require(:booking).permit(:status)
   end
 end
