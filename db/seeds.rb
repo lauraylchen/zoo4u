@@ -50,28 +50,37 @@ user4 = User.create(
 user_photo_file_4 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738587/profile/laura_fpgj7l.jpg")
 user4.photo.attach(io: user_photo_file_4, filename: "avatar4.png", content_type: 'image/jpg')
 
+puts "Users created"
+users = [user1, user2, user4]
 
-users = [user1, user2, user3, user4]
+ozu = Animal.create(
+  user_id: user1.id,
+  name: 'Ozu',
+  animal_type: 'cat',
+  description: "I'm a lil girl born on October 22nd, 2020 and I live in Hochelaga. I am very friendly and affectionate.",
+  price: 600
+)
+ozu_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg")
+ozu.photo.attach(io: ozu_file, filename: "ozu_face.jpg", content_type: 'image/jpg')
+
+puts ozu.name
+
 animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491971/animals/donkey.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492268/animals/piggy.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493324/animals/catyelling.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493139/animals/oneeyedog.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/catyawning.jpg",
+  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493139/animals/oneeyedog.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492680/animals/beaver.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492563/animals/fennec.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492419/animals/catsanddogs.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491838/animals/rabbits.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491426/animals/goat.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg"
+  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491426/animals/goat.jpg"
 ]
 
-puts "Users created"
 
 # Template for seeding animals
 # Set upload path for user image here
-animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'catyawning', 'beaver', 'fennec', 'catsanddogs', 'rabbits', 'goat', 'ozu_face' ]
+animals = ['donkey', 'piggy', 'lemur', 'catyawning', 'oneeyedog', 'beaver', 'fennec', 'rabbits', 'goat' ]
 animals_array = animals.map do |animal|
   # file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/#{animal}.jpg")
   file = URI.open(animals_photo[animals.index(animal)])
@@ -83,7 +92,7 @@ animals_array = animals.map do |animal|
     price: (200..800).to_a.sample
   )
 
-  animal.photo.attach(io: file, filename: "#{animal}.png", content_type: 'image/png')
+  animal.photo.attach(io: file, filename: "#{animal}.jpg", content_type: 'image/jpg')
 
   # puts animal.valid?
   # puts animal.errors.messages
@@ -91,6 +100,32 @@ animals_array = animals.map do |animal|
 
   animal
 end
+
+mathilde = Animal.create(
+  user_id: user4.id,
+  name: 'Mathilde',
+  animal_type: 'kitten',
+  description: "I am a smart kitten and I bite sometimes. Loves playing with my claws!",
+  price: 800
+)
+
+mathilde_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493324/animals/kitten.jpg")
+mathilde.photo.attach(io: mathilde_file, filename: "kitten.jpg", content_type: 'image/jpg')
+
+puts mathilde.name
+
+dogcat = Animal.create(
+  user_id: user2.id,
+  name: "The Fangs Family",
+  animal_type: 'catsanddogs',
+  description: Faker::Movie.quote,
+  price: (200..800).to_a.sample
+)
+
+dogcat_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492419/animals/catsanddogs.jpg")
+dogcat.photo.attach(io: dogcat_file, filename: "catsanddogs.jpg", content_type: 'image/jpg')
+
+puts dogcat.name
 
 puts "Creating bookings"
 
@@ -106,8 +141,9 @@ puts booking1.valid?
 puts booking1.errors.messages
 
 booking2 = Booking.new(
-  start_date: Date.new(2022, 4, 25),
-  end_date: Date.new(2022, 5, 1)
+  start_date: Date.new(2022, 2, 20),
+  end_date: Date.new(2022, 2, 22),
+  status: "confirmed"
 )
 booking2.user = user1
 booking2.animal = animals_array.reject { |animal| animal.user == user1 }[1]
@@ -117,11 +153,11 @@ puts booking2.valid?
 puts booking2.errors.messages
 
 booking3 = Booking.new(
-  start_date: Date.new(2022, 4, 25),
-  end_date: Date.new(2022, 5, 1)
+  start_date: Date.new(2022, 3, 25),
+  end_date: Date.new(2022, 3, 26)
 )
-booking3.user = user1
-booking3.animal = animals_array.reject { |animal| animal.user == user1 }[2]
+booking3.user = user2
+booking3.animal = animals_array.select { |animal| animal.user == user1 }[0]
 booking3.save!
 
 puts booking3.valid?
