@@ -1,0 +1,16 @@
+.show-booking, .edit-booking {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  .btn {
+    background: $blue;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    float: right;
+    margin-bottom: 5px;
+    transition: background 0.3s ease;
+    padding: 8px 24px;
+    border-radius: 4px;
+    &:hover {
+      background: #EFDAD7;
+    }
+  }
+}
