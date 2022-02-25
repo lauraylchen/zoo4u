@@ -50,8 +50,8 @@ user4 = User.create(
 user_photo_file_4 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738587/profile/laura_fpgj7l.jpg")
 user4.photo.attach(io: user_photo_file_4, filename: "avatar4.png", content_type: 'image/jpg')
 
-
-users = [user1, user2, user3, user4]
+puts "Users created"
+users = [user1, user2, user4]
 
 ozu = Animal.create(
   user_id: user1.id,
@@ -89,7 +89,7 @@ animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491971/animals/donkey.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492268/animals/piggy.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491745/animals/lemur.jpg",
-  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493324/animals/catyelling.jpg",
+  "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/catyawning.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493139/animals/oneeyedog.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492680/animals/beaver.jpg",
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492563/animals/fennec.jpg",
@@ -97,11 +97,10 @@ animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491426/animals/goat.jpg"
 ]
 
-puts "Users created"
 
 # Template for seeding animals
 # Set upload path for user image here
-animals = ['donkey', 'piggy', 'lemur', 'catyelling', 'oneeyedog', 'beaver', 'fennec', 'rabbits', 'goat' ]
+animals = ['donkey', 'piggy', 'lemur', 'catyawning', 'oneeyedog', 'beaver', 'fennec', 'rabbits', 'goat' ]
 animals_array = animals.map do |animal|
   # file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492777/animals/#{animal}.jpg")
   file = URI.open(animals_photo[animals.index(animal)])
