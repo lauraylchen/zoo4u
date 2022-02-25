@@ -1,25 +1,25 @@
-<div class="index-title">
-  <%# Title Header %>
-    <div class="title-element"></div>
-      <h1  class="title-element">Our Animals</h1>
-      <div class="search title-element">
-        <%= form_tag animals_path, method: :get do %>
-        <div class="search-results">
-          <%= text_field_tag :animal_type,
-            params[:animal_type],
-            class: "form-control",
-            placeholder: "What type of animal?"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="index-title">
+    <h1>Our Animals</h1>
   </div>
+  <div class="mb-4 py-2">
+    <%= form_tag animals_path, method: :get do %>
+      <div class="d-flex">
+        <%= text_field_tag :animal_type,
+          params[:animal_type],
+          class: "form-control",
+          placeholder: "What type of animal?"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <%# Cards %>
-  <div class="container">
-    <div class="cards-animals">
-      <% @animals.each do |animal| %>
-        <%= render "card", animal: animal%>
-      <% end %>
-    </div>
+<div class="container">
+  <div class="cards-animals">
+    <% @animals.each do |animal| %>
+      <%= render "card", animal: animal%>
+    <% end %>
+  </div>
 </div>
