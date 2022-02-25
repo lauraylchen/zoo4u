@@ -5,8 +5,8 @@ class BookingsController < ApplicationController
   # end
 
   def my_bookings
-    @bookings = Booking.where(user_id: current_user.id)
-    @owner_bookings = current_user.owner_bookings
+    @bookings = Booking.where(user_id: current_user.id).reverse
+    @owner_bookings = current_user.owner_bookings.sort_by(&:status).reverse
   end
 
   def create

@@ -1,0 +1,7 @@
+<div class="booking-card-product-infos">
+  <h2><%= animal.name %></h2>
+  <p class="username"><strong><%= animal.user.username %>'s pet</strong></p>
+  <p>Start Date: <%= booking.start_date.strftime(" %a, %b %e %Y") %></p>
+  <p>End Date: <%= booking.end_date.strftime(" %a, %b %e %Y") %></p>
+  <p>Total Price: $<%= booking.total_price %></p>
+</div>

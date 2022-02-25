@@ -3,10 +3,10 @@
     <h1>Bookings</h1>
   </div>
 
-  <h2 class="aligning">My Booking</h2>
+  <h2 class="aligning">My Bookings</h2>
   <% if @bookings.empty? %>
     <div class="empty-booking-card">
-      <h2>You haven't rent any animals yet.</h2>
+      <h2>You haven't rented any animals yet.</h2>
     </div>
   <% else %>
     <% @bookings.each do |booking| %>
@@ -14,12 +14,7 @@
       <div class="booking-card-product">
         <%= render "animals/animal_image", animal: animal %>
 
-        <div class="booking-card-product-infos">
-          <h2><%= animal.name %></h2>
-          <p>Start Date: <%= booking.start_date.strftime(" %a, %b %e %Y") %></p>
-          <p>End Date: <%= booking.end_date.strftime(" %a, %b %e %Y") %></p>
-          <p>Total Price: $<%= booking.total_price %></p>
-        </div>
+        <%= render "booking_card", animal: animal, booking: booking%>
 
         <div class= "status">
           <% if booking.status == 'confirmed' %>
@@ -34,7 +29,7 @@
     <% end %>
   <% end %>
 
-  <h2 class="aligning">Renter Booking</h2>
+  <h2 class="aligning">My Listings</h2>
   <% if @owner_bookings.empty? %>
     <div class="empty-booking-card">
       <h2>No requests for your animals yet.</h2>
@@ -45,18 +40,13 @@
       <div class="booking-card-product">
         <%= render "animals/animal_image", animal: animal %>
 
-        <div class="booking-card-product-infos">
-          <h2><%= animal.name %></h2>
-          <p>Start Date: <%= booking.start_date.strftime(" %a, %b %e %Y") %></p>
-          <p>End Date: <%= booking.end_date.strftime(" %a, %b %e %Y") %></p>
-          <p>Total Price: $<%= booking.total_price %></p>
-        </div>
+        <%= render "booking_card", animal: animal, booking: booking%>
 
         <div class= "status">
           <% if booking.status == 'pending' %>
             <div class="d-flex">
-              <%= link_to "Confirm", update_booking_path(booking, booking: {status: "confirmed"}), method: :patch, class: "btn btn-success me-2" %>
-              <%= link_to "Decline", update_booking_path(booking, booking: {status: "declined"}), method: :patch, class: "btn btn-danger" %>
+              <%= link_to "Confirm", update_booking_path(booking, booking: {status: "confirmed"}, remote: true), method: :patch, class: "btn btn-success me-2" %>
+              <%= link_to "Decline", update_booking_path(booking, booking: {status: "declined"}, remote: true), method: :patch, class: "btn btn-danger" %>
             </div>
           <% else %>
             <% if booking.status == 'confirmed' %>

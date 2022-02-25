@@ -16,10 +16,9 @@
 }
 
 .booking-card-product h2 {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: bolder;
   margin: 0;
-  padding-bottom: 10px;
 }
 
 .booking-card-product p {
@@ -31,11 +30,12 @@
 }
 
 .booking-card-product .booking-card-product-infos {
-  padding: 16px;
-}
-
-.booking-card-product .booking-card-product-infos {
+  padding: 20px;
   text-align: left;
+  .username {
+    font-size: 12px;
+    margin: 0;
+  }
 }
 
 .status {
@@ -53,7 +53,8 @@
 
 .empty-booking-card {
   height: 160px;
-  background: white;
+  background: #efdad7;
+  color: #be7786;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;

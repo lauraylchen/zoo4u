@@ -16,7 +16,7 @@ User.destroy_all
 user1 = User.create(
   email: "test@test.com",
   password: "123456",
-  username: "Akhyra!"
+  username: "Akhyra"
 )
 
 user_photo_file_1 = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645738601/profile/akhyra_pnj34l.jpg")
