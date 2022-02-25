@@ -63,27 +63,7 @@ ozu = Animal.create(
 ozu_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645640688/animals/ozu_face.jpg")
 ozu.photo.attach(io: ozu_file, filename: "ozu_face.jpg", content_type: 'image/jpg')
 
-mathilde = Animal.create(
-  user_id: user4.id,
-  name: 'Mathilde',
-  animal_type: 'kitten',
-  description: "I am a smart kitten and I bite sometimes. Loves playing with my claws!",
-  price: 800
-)
-
-mathilde_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493324/animals/kitten.jpg")
-mathilde.photo.attach(io: mathilde_file, filename: "kitten.jpg", content_type: 'image/jpg')
-
-dogcat = Animal.create(
-  user_id: user2.id,
-  name: "The Fangs Family",
-  animal_type: 'catsanddogs',
-  description: Faker::Movie.quote,
-  price: (200..800).to_a.sample
-)
-
-dogcat_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492419/animals/catsanddogs.jpg")
-dogcat.photo.attach(io: dogcat_file, filename: "catsanddogs.jpg", content_type: 'image/jpg')
+puts ozu.name
 
 animals_photo = [
   "https://res.cloudinary.com/dq1xs22hk/image/upload/v1645491971/animals/donkey.jpg",
@@ -120,6 +100,32 @@ animals_array = animals.map do |animal|
 
   animal
 end
+
+mathilde = Animal.create(
+  user_id: user4.id,
+  name: 'Mathilde',
+  animal_type: 'kitten',
+  description: "I am a smart kitten and I bite sometimes. Loves playing with my claws!",
+  price: 800
+)
+
+mathilde_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645493324/animals/kitten.jpg")
+mathilde.photo.attach(io: mathilde_file, filename: "kitten.jpg", content_type: 'image/jpg')
+
+puts mathilde.name
+
+dogcat = Animal.create(
+  user_id: user2.id,
+  name: "The Fangs Family",
+  animal_type: 'catsanddogs',
+  description: Faker::Movie.quote,
+  price: (200..800).to_a.sample
+)
+
+dogcat_file = URI.open("https://res.cloudinary.com/dq1xs22hk/image/upload/v1645492419/animals/catsanddogs.jpg")
+dogcat.photo.attach(io: dogcat_file, filename: "catsanddogs.jpg", content_type: 'image/jpg')
+
+puts dogcat.name
 
 puts "Creating bookings"
 
