@@ -1,11 +1,13 @@
-.show-booking, .edit-booking, {
+.show-booking, .edit-booking {
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  .btn {
+}
+
+  .animal-btn {
     background: $blue;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     padding: 15px;
-    margin-left: 500px;
+    // margin-left: 500px;
     margin-bottom: 5px;
     transition: background 0.3s ease;
     border-radius: 4px;
@@ -13,4 +15,3 @@
       background: #EFDAD7;
     }
   }
-}

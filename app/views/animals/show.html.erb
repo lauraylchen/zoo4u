@@ -27,7 +27,7 @@
             <%= simple_form_for [@animal, @booking] do |f| %>
               <%= f.input :start_date %>
               <%= f.input :end_date %>
-              <%= f.button :submit %>
+              <div class="text-center"><%= f.button :submit, class: "animal-btn"  %></div>
             <% end %>
             <%# <%= link_to "Book Now", new_animal_booking_path(@animal), class: "btn btn-lightblue col-6" %>
         </div>
@@ -40,7 +40,7 @@
               <%= f.input :price %>
               <%= f.input :description %>
               <%= f.input :photo, as: :file %>
-              <%= f.button :submit %>
+              <div class="text-center"><%= f.button :submit, class: "animal-btn"  %></div>
             <% end %>
           </div>
       <% end %>
